@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.sciencepublish.mapper.UserMapper">
+    <!--auto generated Code-->
+    <resultMap id="AllColumnMap" type="com.sciencepublish.model.User">
+        <result column="user_id" property="userId"/>
+        <result column="pwd" property="pwd"/>
+    </resultMap>
+
+    <!--auto generated Code-->
+    <sql id="all_column">
+        `user_id`,
+        `pwd`
+    </sql>
+
+    <!--auto generated Code-->
+    <insert id="insert" useGeneratedKeys="true" keyProperty="pojo.userId">
+        INSERT INTO user (
+            `user_id`,
+            `pwd`
+        ) VALUES (
+            #{pojo.userId},
+            #{pojo.pwd}
+        )
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="pojo.userId">
+        INSERT INTO user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.userId!=null"> `user_id`,</if>
+            <if test="pojo.pwd!=null"> `pwd`,</if>
+        </trim>
+        VALUES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pojo.userId!=null">#{pojo.userId},</if>
+            <if test="pojo.pwd!=null">#{pojo.pwd},</if>
+        </trim>
+    </insert>
+
+    <!--auto generated Code-->
+    <insert id="insertList">
+        INSERT INTO user (
+        <include refid="all_column"/>
+        )VALUES
+        <foreach collection="pojos" item="pojo" index="index" separator=",">
+            (
+            #{pojo.userId},
+            #{pojo.pwd}
+            )
+        </foreach>
+    </insert>
+
+    <!--auto generated Code-->
+    <update id="update">
+        UPDATE user
+        <set>
+            <if test="pojo.userId != null"> `user_id` = #{pojo.userId}, </if>
+            <if test="pojo.pwd != null"> `pwd` = #{pojo.pwd} </if>
+        </set>
+        WHERE user_id = #{pojo.userId}
+    </update>
+
+    <select id="getAllUser" resultMap="AllColumnMap">
+        select * from user
+    </select>
+</mapper>
+
