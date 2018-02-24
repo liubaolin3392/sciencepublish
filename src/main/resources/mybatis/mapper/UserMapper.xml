@@ -64,5 +64,11 @@
     <select id="getAllUser" resultMap="AllColumnMap">
         select * from user
     </select>
+
+    <select id="getUserByUserId" resultMap="AllColumnMap" parameterType="string">
+        select * from user
+        WHERE user_id = #{userId}
+    </select>
+
 </mapper>
 

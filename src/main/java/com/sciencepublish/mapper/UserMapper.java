@@ -17,4 +17,6 @@ public interface UserMapper {
     int update(@Param("pojo") User pojo);
 
     List<User> getAllUser();
+
+    User getUserByUserId(@Param("userId") String userId);
 }

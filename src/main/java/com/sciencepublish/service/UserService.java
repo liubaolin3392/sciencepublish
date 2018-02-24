@@ -40,4 +40,9 @@ public class UserService
     {
         return userMapper.getAllUser();
     }
+
+    public  User getUserByUserId(String userId)
+    {
+        return userMapper.getUserByUserId(userId);
+    }
 }
