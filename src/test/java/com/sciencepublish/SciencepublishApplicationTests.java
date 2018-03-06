@@ -11,6 +11,7 @@ public class SciencepublishApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		
 	}
 
 }
